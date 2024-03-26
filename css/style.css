@@ -1,5 +1,123 @@
+@font-face {
+    font-family: 'Inter', sans-serif;
+    src: url(../assets/fonts/Inter-VariableFont_slnt\,wght.ttf);
+}
 
+/* CUSTOM PROPERTIES */
+:root {
+    /* COLOR PRIMARY */
+    --clr-primary-yellow: hsl(35, 77%, 62%);
+    --clr-primary-orange: hsl(5, 85%, 63%);
 
+    /* COLORS NEUTRAL */
+    --clr-neutral-100: hsl(36, 100%, 99%);
+    --clr-neutral-200: hsl(233, 8%, 79%);
+    --clr-neutral-400: hsl(236, 13%, 42%);
+    --clr-neutral-900: hsl(240, 100%, 5%);
+
+    /* FONTS */
+    --ff-global: 'Inter', sans-serif;
+    --fw-regular: 400;
+    --fw-bold: 700;
+    --fw-xtr-bold: 800;
+    --fs-regular: .9375rem;
+}
+
+/* CSS RESET https://piccalil.li/blog/a-more-modern-css-reset/ */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* LARGE SELECTOR  */
+body {
+    color: var(--clr-neutral-400);
+    font-size: var(--fs-regular);
+    font-family: var(--ff-global);
+}
+
+/* GENERAL STYLING */
+.deco-img__mobile {
+    display: none;
+}
+
+/* UTILITY CLASSES */
+.flex-row {
+    display: flex;
+    align-items: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flow > * + * {
+    margin-block: var(--flow-space, 1rem)l;
+}
 
 /* PRE STYLED FROM FRONTEND MENTOR */
 .attribution {
