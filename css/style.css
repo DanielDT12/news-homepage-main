@@ -117,11 +117,24 @@ textarea:not([rows]) {
   scroll-margin-block: 5ex;
 }
 
+/* SCREEN READER ONLY */
+.sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+  }
+
 /* LARGE SELECTOR  */
 body {
     color: var(--clr-neutral-400);
     font-size: var(--fs-global);
     font-family: var(--ff-global);
+
+    overflow-x: hidden;
 }
 
 .deco-img__mobile {
@@ -141,6 +154,10 @@ body {
     justify-content: space-between;
     align-items: center;
     padding-block: 3rem;
+}
+
+.mobile-nav-toggle {
+    display: none;
 }
 
 .primary-header__nav-list {
@@ -246,9 +263,14 @@ body {
     justify-content: space-around;
 }
 
+.related-news__info:nth-last-child(n) {
+    line-height: 1.3;
+}
+
 .related-news__img {
     flex-shrink: 0;
     max-width: 6.25rem;
+    
 }
 
 .related-news__number {
@@ -299,7 +321,7 @@ body {
 }
 
 .gap-md {
-    gap: 2rem;
+    gap: var(--gap, 2rem);
 }
 
 .block-sm {
@@ -336,5 +358,52 @@ body {
 
     .related-news {
         margin-block-start: 0;
+    }
+}
+
+@media (max-width: 650px) {
+    .deco-img__desktop {
+        display: none;
+    }
+
+    .deco-img__mobile {
+        display: block;
+    }
+}
+
+@media (max-width: 560px) {
+    .primary-header__nav-list {
+        --gap: 1rem;
+
+        position: fixed;
+        z-index: 100;
+        inset: 0 0 0 33%;
+        flex-direction: column;
+        padding: min(25vh, 8rem) 1.5rem;
+        background-color: steelblue;
+
+        transform: translateX(100%);
+
+        & a {
+            color: var(--clr-neutral-900);
+        }
+    }
+
+    .primary-header__nav-list[data-visible="true"] {
+        transform: translateX(0%);
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+        position: absolute;
+        z-index: 9999;
+        width: 2rem;
+        top: 3rem;
+        right: 2rem;
+        border: none;
+        background: url(../assets/images/icon-menu.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        aspect-ratio: 1 / 1;
     }
 }

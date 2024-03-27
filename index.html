@@ -6,6 +6,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="css/style.css">
   <title>Frontend Mentor | News homepage</title>
+  <script src="nav.js" defer></script>
 </head>
 <body>
   <div class="grid-wrapper">
@@ -13,8 +14,13 @@
       <a href="index.html" title="Home">
         <img src="assets/images/logo.svg" alt="Company Name">
       </a>
+
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+        <span class="sr-only">Menu</span>
+      </button>
+
       <nav class="primary-header__nav">
-        <ul class="primary-header__nav-list | flex-row gap-md" ">
+        <ul id="primary-navigation" data-visible="false" class="primary-header__nav-list | flex-row gap-md" ">
           <li>
             <a href="#">Home</a>
           </li>
